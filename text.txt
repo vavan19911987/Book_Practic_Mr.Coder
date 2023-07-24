@@ -1,0 +1,295 @@
+НЕ РЕШОННЫЕ ЗАДАЧИ
+
+
+Напишите код, который будет проверять число на то, простое оно или нет.
+Простое число делится только на единицу и на само себя, и не делится на другие числа.
+
+let arr = [2, 3, 5, 7, 11, 1, 4, 6, 12, 13, 42, 43];
+
+for (let i = 0; i <= arr.length -1; i++) {
+    // arr[i] /= 2;
+    if (arr[i] % 2 >= 1 ) {
+        console.log(arr[i]);
+    }
+
+}
+
+Дан массив с числами. Найдите среднее арифметическое его элементов.
+
+ Составьте массив дней недели. С помощью цикла for выведите все дни недели, а выходные дни выведите жирным.
+
+ let arr = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
+ for (let i = 0; i <= arr.length - 1; i++) {
+     let s = 'Суббота';
+     let v = 'Воскресенье';
+     if (arr[i] === s || arr[i] === v)  {
+         document.write('<strong/>');
+     }
+     document.write(arr[i] + '<br/>');
+
+ }
+ Составьте массив дней недели. С помощью цикла for выведите все дни недели, а текущий день выведите курсивом.
+     Номер текущего дня должен храниться в переменной day.
+
+let arr = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
+for (let elem of arr) {
+    // document.write(elem + '<br/>');
+    let day = 'Вторник';
+    if (day === elem) {
+        console.log(elem)
+    }
+
+}
+
+// Используя созданную вами функцию из предыдущей задачи найдите все пары дружественных чисел в промежутке от 1 до 1000.
+function divider(num) {
+    let arr = [];
+    for (let i = 1; i < num; i++) {
+        if (num % i === 0) {
+            arr.push(i);
+        }
+    }
+    console.log(arr);
+    return arr;
+}
+function sumDivider(sum1) {
+    let sumArr = 0;
+    for (let i = 0; i < sum1.length; i++) {
+        sumArr += sum1[i];
+    }
+    return sumArr;
+}
+function dividerSum(num1,num2) {
+
+    if (num1 === num2) {
+        return 'Дружественные числа';
+    }
+    return 'Не дружественные числа';
+}
+function pairOfFriendly(numFrind) {
+    let arrF = [];
+    for (let i = 1; i <= numFrind ; i++) {
+            arrF.push(i);
+    }
+    return arrF;
+}
+// console.log(pairOfFriendly(15));
+function q(arrQ) {
+    let arr = [];
+    for (let i = 0; i <= arrQ.length; i++) {
+
+        if (arrQ[i] % i === 0) {
+            arr.push(i);
+        }
+    }
+    return arr;
+}
+
+console.log(q(pairOfFriendly(15)))
+
+console.log(dividerSum(sumDivider(divider(15)), sumDivider(divider(15))));
+
+
+
+
+
+
+let arrInfo = ['Информация сотрудника', 'Моё имя Владимир', 'Моя фамилия Пулин', 'Моё отчество Михайлович', 'Я работаю на севере']
+let body = document.querySelector('body')
+function creatUlList () {
+
+	let list = document.createElement('ul')
+	let text
+	let li
+	let links
+	let links2
+	let link
+	for (let el of arrInfo) {
+		li = document.createElement('li')
+		li.textContent = el
+		li.style.marginBottom = '10px'
+		list.appendChild(li)
+	}
+	list.addEventListener('click', (e) => {
+		let input = document.createElement('input')
+		input.value = e.target.textContent
+		e.target.textContent = ''
+		input.addEventListener('blur', () => {
+			e.target.textContent = input.value
+			if (input.value === '') {
+				e.target.textContent = 'Данные отсутствуют'
+			}
+		})
+		e.target.appendChild(input)
+	})
+	list.style.listStyleType = 'none'
+	list.style.width = '800px'
+	body.appendChild(list)
+
+	let inputNewLi = document.createElement('input')
+	inputNewLi.style.marginTop = '20px'
+	inputNewLi.style.marginLeft = '36px'
+	inputNewLi.setAttribute('placeholder', 'Добавить новое поля')
+	inputNewLi.addEventListener('blur', function () {
+		if (inputNewLi.value !== '') {
+			let li = document.createElement('li')
+			li.innerHTML = inputNewLi.value
+			inputNewLi.value = ''
+			list.appendChild(li)
+			text = li.innerHTML.replace(li.innerHTML, <span>${li.innerHTML}</span>)
+			li.innerHTML = text
+
+			link = document.createElement('a')
+			link.href = ''
+			link.innerHTML = ' Удалить'
+			link.style.textDecoration = 'none'
+			link.style.color = 'red'
+			link.style.float = 'right'
+			link.style.marginLeft = '200px'
+			li.insertAdjacentElement('beforeEnd', link)
+			link.addEventListener('click', (ev) => {
+				li.remove()
+				ev.preventDefault()
+			})
+			links2 = document.createElement('a')
+			links2.href = ''
+			links2.innerHTML = '  Вычеркнуть'
+			links2.style.textDecoration = 'none'
+			links2.style.color = 'green'
+			links2.style.marginRight = '50px'
+			links2.style.float = 'left'
+			link.insertAdjacentElement('beforeBegin', links2)
+			links2.addEventListener('click', function (ev) {
+				li.firstElementChild.style.textDecoration = 'line-through'
+				ev.stopPropagation()
+				ev.preventDefault()
+			})
+		}
+	})
+
+	let lists = document.querySelectorAll('li')
+	for (let elList of lists) {
+		text = elList.innerHTML.replace(elList.innerHTML, <span>${elList.innerHTML}</span>)
+		elList.innerHTML = text
+		link = document.createElement('a')
+		link.href = ''
+		link.innerHTML = '  Удалить'
+		link.style.textDecoration = 'none'
+		link.style.color = 'red'
+		link.style.float = 'right'
+		link.style.marginLeft = '200px'
+
+		elList.insertAdjacentElement('beforeEnd', link)
+		link.addEventListener('click', (ev) => {
+			elList.remove()
+			ev.preventDefault()
+		})
+	}
+	let remove = document.querySelectorAll('span')
+	for (let el of remove) {
+		links = document.createElement('a')
+		links.href = ''
+		links.innerHTML = '  Вычеркнуть'
+		links.style.textDecoration = 'none'
+		links.style.color = 'green'
+		links.style.marginRight = '50px'
+		links.style.float = 'left'
+
+		el.insertAdjacentElement('afterEnd', links)
+		links.addEventListener('click', (ev) => {
+			el.style.textDecoration = 'line-through'
+			ev.stopPropagation()
+			ev.preventDefault()
+		})
+	}
+	list.insertAdjacentElement('afterEnd', inputNewLi)
+}
+
+creatUlList()
+
+
+
+
+
+
+
+
+let span;
+let itemLi;
+let link;
+// 1
+arr.forEach((el) => {
+	itemLi = document.createElement('li')
+	itemLi.textContent = ''
+	listUl.append(itemLi)
+	span = document.createElement('span')
+	span.textContent = el
+	itemLi.append(span)
+	link = document.createElement('a')
+	link.href = '#'
+	link.textContent = ' Delete'
+	link.classList.add('link')
+	itemLi.append(link)
+})
+// 2
+
+// for (let i = 0; i < listUl.length; i++) {
+// 	console.log(listUl[i])
+// }
+
+
+// 3 // 4
+let inp = document.createElement('input')
+listUl.insertAdjacentElement('afterend', inp)
+inp.style.display = 'block'
+inp.addEventListener('blur', () => {
+	let li = document.createElement('li')
+	let span = document.createElement('span')
+	li.textContent = ''
+	span.textContent = inp.value
+	inp.value = ''
+	li.append(span)
+	listUl.append(li)
+	listUl.append(itemLi)
+	let link2 = document.createElement('a')
+	link2.href = '#'
+	link2.textContent = ' Delete'
+	link2.classList.add('link')
+
+	// li.append(link2)
+})
+// 4
+
+// console.log(listUl)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
