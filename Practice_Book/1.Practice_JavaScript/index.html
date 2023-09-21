@@ -52,10 +52,10 @@
         <div id="circle">"S","D"</div>
         <p class="par"><=</p>
         <div class="inpWrap">
-            <label for="circleInp">Введите радиус</label>
-            <input id="circleInp" type="number" class="inp" value="" placeholder="Найти площадь">
-            <label for="circleInpS">Введите радиус</label>
-            <input id="circleInpS" type="number" class="inpS" value="" placeholder="Найти длину окружности">
+            <label for="circleInp">Найти площадь</label>
+            <input id="circleInp" type="number" class="inp" value="" placeholder="Введите радиус">
+            <label for="circleInpS">Найти длину окружности</label>
+            <input id="circleInpS" type="number" class="inpS" value="" placeholder="Введите радиус">
         </div>
         <p class="par"><=</p>
         <div class="inpWrap2">
@@ -85,6 +85,52 @@
 
     </div>
 
+    <div class="square">
+        <h2>Квадратное уравнение</h2>
+        <p class="squareText"><span><strong>Исходные данные</strong></span> => <strong>a * x<sup>2</sup> + b * x + c = 0</strong>
+        </p>
+        <form action="" id="squareForm">
+            <input type="number" id="a" placeholder="a"> x <sup>2</sup> +
+            <input type="number" id="b" placeholder="b"> x +
+            <input type="number" id="c" placeholder="c"> = 0
+            <input type="button" value="Решить" onclick="prog();">
+        </form>
+        <div id="squareRes">
+            <h2>Результат</h2>
+            <pre id="result"></pre>
+        </div>
+    </div>
+
+    <div class="Pythagoras">
+        <h2>Тройка Пифагора</h2>
+        <p class="pythagorasText"><strong>Исходные данные</strong> => <strong>a<sup>2</sup> + b<sup>2</sup> =
+            c<sup>2</sup></strong></p>
+
+        <form action="" class="pythForm">
+            <input type="number" name="" id="x" placeholder="a"> <!--<strong><sup>2</sup></strong> + -->
+            <input type="number" name="" id="y" placeholder="b"> <!-- <strong><sup>2</sup></strong> = -->
+            <input type="number" name="" id="z" placeholder="c"> <!-- <strong><sup>2</sup></strong> -->
+            <input type="button" value="Проверить" id="btn">
+        </form>
+        <div class="pythagorasResult">
+            <h2>Результат</h2>
+            <pre id="pythRes"></pre>
+        </div>
+    </div>
+
+    <div class="divider">
+        <h2>Найти делители числа</h2>
+        <p class="dividerText"><strong>Исходные данные</strong> => <strong>x % y = 0</strong></p>
+
+        <form action="">
+            <input type="number" placeholder="Введите число" id="inpDivider">
+            <input type="button" value="Найти" id="btnDivider">
+        </form>
+        <div class="dividerResult">
+            <h2>Результат</h2>
+            <pre id="divRes"></pre>
+        </div>
+    </div>
 
 </div>
 

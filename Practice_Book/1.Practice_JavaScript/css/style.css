@@ -11,7 +11,8 @@ body {
 #square {
     width: 100px;
     height: 100px;
-    border: 1px solid red;
+    background: grey;
+    border: 1px solid grey;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -92,6 +93,7 @@ sup {
     width: 120px;
     height: 80px;
     border: 1px solid green;
+    background: green;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -133,6 +135,7 @@ sup {
     width: 100px;
     height: 100px;
     border: 3px solid yellow;
+    background: yellow;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -175,4 +178,82 @@ sup {
     position: relative;
     top: 61px;
     text-align: center;
+}
+
+.squareText span {
+    font-size: 18px;
+}
+.square {
+    width: 480px;
+}
+#a,#b,#c {
+    width: 80px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#squareRes {
+    display: none;
+    text-align: center;
+}
+
+pre {
+    margin: auto 20px;
+    padding: 10px;
+    background: #8ca5cf;
+    border: 1px solid black;
+    font-size: 16px;
+}
+
+input[type = 'submit'], input[type = 'button'] {
+    background: #8ca5cf;
+    border: 2px solid #8ca5cf;
+    border-radius: 6px;
+    padding: 6px;
+}
+input[type = 'submit']:hover, input[type = 'button']:hover{
+    opacity: 0.8;
+}
+
+input[type = 'number'] {
+    border: 1px solid darkseagreen;
+}
+
+#squareForm input[type = 'submit'] {
+    margin-left: 15px;
+}
+
+#x,#y,#z {
+    width: 80px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.pythForm sup {
+    position: relative;
+    top: -8px;
+}
+.pythagorasResult {
+    display: none;
+}
+.pythagorasResult h2 {
+    text-align: center;
+}
+#pythRes {
+    text-align: center;
+}
+
+.divider {
+    margin-left: 40px;
+}
+
+#inpDivider {
+    width: 190px;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.dividerResult {
+    text-align: center;
+    display: none;
 }
