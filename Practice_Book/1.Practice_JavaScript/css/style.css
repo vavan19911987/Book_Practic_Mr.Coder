@@ -184,7 +184,10 @@ sup {
     font-size: 18px;
 }
 .square {
-    width: 480px;
+    padding: 10px;
+    border: 2px solid green;
+    width: 440px;
+    margin-right: 120px;
 }
 #a,#b,#c {
     width: 80px;
@@ -222,7 +225,10 @@ input[type = 'number'] {
 #squareForm input[type = 'submit'] {
     margin-left: 15px;
 }
-
+.Pythagoras {
+    padding: 10px;
+    border: 2px solid green;
+}
 #x,#y,#z {
     width: 80px;
     padding: 5px;
@@ -244,7 +250,10 @@ input[type = 'number'] {
 }
 
 .divider {
-    margin-left: 40px;
+    padding: 10px;
+    border: 2px solid green;
+    margin-left: 160px;
+    margin-right: 40px;
 }
 
 #inpDivider {
@@ -253,7 +262,19 @@ input[type = 'number'] {
     border-radius: 5px;
 }
 
-.dividerResult {
+.isDivider {
+    padding: 10px;
+    border: 2px solid green;
+    margin-top: 40px;
+}
+
+.dividerResult, .isDividerResult {
     text-align: center;
     display: none;
+}
+
+#isInpDivider, #isInpDivider2 {
+    width: 100px;
+    padding: 5px;
+    border-radius: 5px;
 }
