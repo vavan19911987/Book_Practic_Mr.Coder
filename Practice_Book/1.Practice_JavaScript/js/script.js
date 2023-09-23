@@ -291,14 +291,43 @@ isBtnDivider.addEventListener('click', () => {
 // * Если игрок ввел число, меньше загаданного, компьютер должен написать 'введите число побольше',
 // * а если введено больше загаданного, то, соответственно, компьютер должен написать 'введите число поменьше'.
 
-
-function getGame() {
-
+let number = document.querySelector('.numRes');
+let compBtn = document.querySelector('#compBtn')
+function getGenerator() {
+    compBtn.addEventListener('click', () => {
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+        number.textContent = getRandomInt(1, 100)
+    })
 }
+getGenerator();
 
+let peopleInp = document.querySelector('#peopleInp');
+let peopleBnt = document.querySelector('#peopleBtn');
+let peopleRes = document.querySelector('#res');
+let peopleResult = document.querySelector('.result')
 
+function checkNumber() {
+    peopleBnt.addEventListener('click', () => {
+        if (+number.textContent === +peopleInp.value) {
+            peopleRes.textContent = 'Ура Вы угадали';
+            number.style.display = 'block';
+            peopleResult.style.display = 'block'
+        } else if (+number.textContent > +peopleInp.value) {
+            peopleRes.textContent = 'Введите число побольше';
+            peopleResult.style.display = 'block'
+        } else if (+number.textContent < +peopleInp.value) {
+            peopleRes.textContent = 'Введите число поменьше';
+            peopleResult.style.display = 'block'
+        }
+    })
+}
+checkNumber();
 
+// ? **************************************** //
 
+// ! Игра угадай ячейку на JavaScript
 
 
 

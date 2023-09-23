@@ -278,3 +278,50 @@ input[type = 'number'] {
     padding: 5px;
     border-radius: 5px;
 }
+
+.games {
+    padding: 10px;
+    border: 2px solid green;
+    margin-left: 40px;
+    margin-top: 40px;
+}
+
+#peopleInp {
+    width: 100px;
+    padding: 5px;
+    border-radius: 5px;
+    margin-right: 40px;
+}
+
+.people {
+    margin-top: 10px;
+}
+
+.number {
+    width: 60px;
+    height: 60px;
+    border: 2px solid red;
+    margin-right: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: green;
+}
+
+.computer, .people {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.result {
+    text-align: center;
+}
+
+.numRes {
+    display: none;
+}
+.result {
+    display: none;
+}
