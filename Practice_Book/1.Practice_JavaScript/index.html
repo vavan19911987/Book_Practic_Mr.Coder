@@ -148,29 +148,111 @@
         </div>
     </div>
 
-<div class="games">
-    <h2>Игра угадай число от 1 до 100</h2>
-    <p class="gamesText">Компьютер загадывает число <strong>"Нажмити сгенирировать"</strong><br> попробуйте угадать загаданное число </p>
-    <div class="computer">
-        <div class="number">
-            <span class="numRes"></span>
+    <div class="games">
+        <h2>Игра угадай число от 1 до 100</h2>
+        <p class="gamesText">Компьютер загадывает число <strong>"Нажмити сгенирировать"</strong><br> попробуйте угадать
+            загаданное число </p>
+        <div class="computer">
+            <div class="number">
+                <span class="numRes"></span>
+            </div>
+            <input type="button" value="Генирировать" id="compBtn">
         </div>
-        <input type="button" value="Генирировать" id="compBtn">
+        <div class="people">
+            <input type="number" id="peopleInp" placeholder="90">
+            <input type="button" value="Проверить" id="peopleBtn">
+        </div>
+        <div class="result">
+            <h2>Рузультат</h2>
+            <pre id="res"></pre>
+        </div>
     </div>
-    <div class="people">
-        <input type="number"  id="peopleInp" placeholder="90">
-        <input type="button" value="Проверить" id="peopleBtn">
+
+    <div class="gamesCell">
+        <h2>Игра угадай 5 загаданных ячеек за 25 секунд</h2>
+        <p class="gamesText"><strong>"Нажми генерировать и кликай по ячейкам чтобы <br>найти все зеленые"</strong></p>
+        <p class ="time">00:00</p>
+        <input type="button" value="Генирировать" id="cellBtn">
+        <input type="button" id="reset" onclick="location.reload()" value="Перезапустить">
     </div>
-    <div class="result">
-        <h2>Рузультат</h2>
-        <pre id="res"></pre>
+
+    <div class="keyboardWrapp">
+        <input type="text" name="" id="keyText">
+        <div class="keyboard">
+            <div class="key">ё</div>
+            <div class="key isSift">1</div>
+            <div class="key addShift">!</div>
+            <div class="key isSift">2</div>
+            <div class="key addShift">"</div>
+            <div class="key isSift">3</div>
+            <div class="key addShift">№</div>
+            <div class="key isSift">4</div>
+            <div class="key addShift">;</div>
+            <div class="key isSift">5</div>
+            <div class="key addShift">%</div>
+            <div class="key isSift">6</div>
+            <div class="key addShift">:</div>
+            <div class="key isSift">7</div>
+            <div class="key addShift">?</div>
+            <div class="key isSift">8</div>
+            <div class="key addShift">*</div>
+            <div class="key isSift">9</div>
+            <div class="key addShift">(</div>
+            <div class="key isSift">0</div>
+            <div class="key addShift">)</div>
+            <div class="key isSift">-</div>
+            <div class="key addShift">_</div>
+            <div class="key isSift">=</div>
+            <div class="key addShift">+</div>
+            <div class="key Backspace not">Backspace</div>
+            <div class="key margin">й</div>
+            <div class="key">ц</div>
+            <div class="key">у</div>
+            <div class="key">к</div>
+            <div class="key">е</div>
+            <div class="key">н</div>
+            <div class="key">г</div>
+            <div class="key">ш</div>
+            <div class="key">щ</div>
+            <div class="key">з</div>
+            <div class="key">х</div>
+            <div class="key">ъ</div>
+            <div class="key slash isSift">\</div>
+            <div class="key slash addShift">/</div>
+            <div class="key CapsLock not">CapsLock</div>
+            <div class="key">ф</div>
+            <div class="key">ы</div>
+            <div class="key">в</div>
+            <div class="key">а</div>
+            <div class="key">п</div>
+            <div class="key">р</div>
+            <div class="key">о</div>
+            <div class="key">л</div>
+            <div class="key">д</div>
+            <div class="key">ж</div>
+            <div class="key margin2">э</div>
+            <div class="key shift not">shift</div>
+            <div class="key">я</div>
+            <div class="key">ч</div>
+            <div class="key">с</div>
+            <div class="key">м</div>
+            <div class="key">и</div>
+            <div class="key">т</div>
+            <div class="key">ь</div>
+            <div class="key">б</div>
+            <div class="key">ю</div>
+            <div class="key isSift">.</div>
+            <div class="key addShift">,</div>
+            <div class="key Enter not">Enter</div>
+            <div class="key Ctrl not">Ctrl + Alt</div>
+            <div class="key space not">Space</div>
+            <div class="key Ctrl not">Ctrl + Alt</div>
+        </div>
     </div>
+
+
+
 </div>
-
-
-</div>
-
-
 
 
 <script src="js/script.js"></script>

@@ -325,3 +325,121 @@ input[type = 'number'] {
 .result {
     display: none;
 }
+
+.gamesCell {
+    padding: 10px;
+    border: 2px solid green;
+    margin-left: 40px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.isTable {
+    border: 1px solid black;
+}
+
+td {
+    width: 40px;
+    height: 40px;
+    border: 1px solid green;
+}
+
+#cellBtn {
+    margin-bottom: 10px;
+}
+
+.test {
+    background: none;
+}
+
+.test:hover {
+    opacity: 0.8;
+}
+
+.test2 {
+    background: red;
+}
+
+.test3 {
+    background: #0e751f;
+}
+.time {
+    font-size: 26px;
+    color: blue;
+}
+
+.red {
+    color: red;
+}
+
+#reset {
+    display: none;
+    margin: 10px auto;
+}
+.keyboardWrapp {
+    margin-top: 40px;
+}
+.keyboard {
+    margin-top: 20px;
+    width: 720px;
+    height: 225px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.key {
+    width: 40px;
+    height: 40px;
+    border: 1px solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: cadetblue;
+    border-radius: 9px;
+    margin-right: 4px;
+    cursor: pointer;
+}
+
+.key:hover {
+    opacity: 0.8;
+}
+
+.Backspace, .CapsLock, .shift, .Enter, .Ctrl {
+    width: 120px;
+}
+
+.space {
+    width: 450px;
+}
+
+.margin {
+    margin-left: 80px;
+}
+
+.margin2 {
+    margin-right: 30px;
+}
+.slash {
+    width: 60px;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.greyColor {
+    background-color: grey;
+}
+.addShift {
+    display: none;
+}
+.isSift2 {
+    display: none;
+}
+
+#keyText {
+    width: 400px;
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid green;
+    padding-left: 20px;
+}

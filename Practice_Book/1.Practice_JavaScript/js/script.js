@@ -255,12 +255,12 @@ function isDivider() {
             arrDivider2.push(i)
         }
     }
-    arrResultDiv.push(...arrDivider1,...arrDivider2);
+    arrResultDiv.push(...arrDivider1, ...arrDivider2);
 
     if (isInpDivider2.value === '' || isInpDivider.value === '') {
         isDivRes.textContent = 'Введите числа'
-    } else  {
-        let duplicate = arrResultDiv.filter((num,i,el) => {
+    } else {
+        let duplicate = arrResultDiv.filter((num, i, el) => {
             return el.indexOf(num) !== i;
         })
         if (duplicate.length === 0) {
@@ -277,6 +277,7 @@ function isDivider() {
 
 
 }
+
 isBtnDivider.addEventListener('click', () => {
     isDivider();
     isDividerResult.style.display = 'block';
@@ -293,14 +294,17 @@ isBtnDivider.addEventListener('click', () => {
 
 let number = document.querySelector('.numRes');
 let compBtn = document.querySelector('#compBtn')
+
 function getGenerator() {
     compBtn.addEventListener('click', () => {
         function getRandomInt(min, max) {
             return Math.floor(Math.random() * (max - min + 1)) + min;
         }
+
         number.textContent = getRandomInt(1, 100)
     })
 }
+
 getGenerator();
 
 let peopleInp = document.querySelector('#peopleInp');
@@ -323,11 +327,133 @@ function checkNumber() {
         }
     })
 }
+
 checkNumber();
 
 // ? **************************************** //
 
 // ! Игра угадай ячейку на JavaScript
+
+// * Давайте теперь реализуем игру угадай ячейку.
+// * В этой игре будет дана таблица 10 на 10.
+// * Компьютер случайным образом запоминает 10 ячеек из этой таблицы.
+// * Игроку нужно кликать на клетки пока он не найдет все загаданные
+// * компьютером клетки
+
+// ? №1
+
+// * Модифицируйте предыдущую задачу, добавив таймер обратного отсчета.
+// * Если игрок не успеет угадать числа за отведенное время - он проиграл.
+
+let gamesCell = document.querySelector('.gamesCell');
+let arrTable = {
+    row: ['', '', '', '', '', '', '', '', '', ''],
+    col: ['', '', '', '', '', '', '', '', '', ''],
+    col2: ['', '', '', '', '', '', '', '', '', ''],
+}
+
+function addTable() {
+    let table = document.createElement('table');
+    table.classList.add('isTable')
+    gamesCell.append(table)
+    for (let el in arrTable) {
+        let tr = document.createElement('tr')
+        table.append(tr)
+        for (let i = 0; i < arrTable[el].length; i++) {
+            let td = document.createElement('td')
+            tr.append(td);
+            td.classList.add('test')
+        }
+    }
+}
+
+addTable()
+
+let tr = document.querySelectorAll('.test')
+
+function getTable(e) {
+    const colors = ['white', 'white', 'white', 'white', 'white'];
+    for (let i = 0; i < 5; i++) {
+        let j = Math.random() * (i + 25) | 0;
+        [colors[i], colors[j]] = [colors[j], colors[i]];
+
+    }
+    tr.forEach((el, i) => {
+        el.style.backgroundColor = colors[i]
+    });
+}
+
+let cellBtn = document.querySelector('#cellBtn')
+
+let time = document.querySelector('.time')
+let reset = document.querySelector('#reset')
+let isTable = document.querySelector('.isTable')
+let testColor = 0
+cellBtn.addEventListener('click', function stop() {
+    getTable();
+    let seconds = 0;
+    let timerId = setInterval(function () {
+        seconds++;
+        time.innerHTML = "00:0" + seconds.toString();
+        if (seconds >= 10) {
+            time.innerHTML = '00:' + seconds.toString()
+        }
+        if (seconds >= 18) {
+            time.classList.add('red')
+        }
+        if (seconds === 25) {
+            clearInterval(timerId)
+            time.textContent = 'Game Over'
+            cellBtn.style.display = 'none'
+            reset.style.display = 'block'
+            isTable.style.display = 'none'
+        }
+        if (testColor === 5) {
+            clearInterval(timerId)
+            time.textContent = 'Вы справились за ' + seconds.toString() + 'сек';
+            cellBtn.style.display = 'none'
+            reset.style.display = 'block'
+            isTable.style.display = 'none'
+        }
+    }, 1000);
+    cellBtn.removeEventListener('click', stop)
+})
+tr.forEach(function (el) {
+    el.addEventListener('click', function () {
+        if (el.style.backgroundColor === 'white') {
+            el.style.backgroundColor = 'green'
+        } else {
+            el.classList.add('test2')
+        }
+        if (el.style.backgroundColor === 'green') {
+            testColor += 1;
+        }
+    })
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
