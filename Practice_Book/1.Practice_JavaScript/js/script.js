@@ -431,7 +431,70 @@ tr.forEach(function (el) {
     })
 })
 
+// ! Экранная клавиатура на JavaScript
 
+// * Давайте реализуем экранную клавиатуру.
+// * На ней должны быть кнопочки со всеми буквами и
+// * цифрами клавиатуры  компьютера.
+// * Кликая мышкой по этим кнопочкам мы сможем вводить данные,
+// * например, при неработающей клавиатуре.
+
+// ? №1
+
+// * Реализуйте описанную клавиатуру.
+// * Пусть эта клавиатура будет привязана к какому-нибудь инпуту,
+// * то есть кликая по ней, мы будем вводить данные в этот инпут.
+
+// ? №2
+
+// * Сделайте на вашей клавиатуре кнопку Caps Lock, которая будет делать так,
+// * чтобы все буквы переводились в верхний регистр.
+
+let keyText = document.querySelector('#keyText');
+let keyboard = document.querySelector('.keyboard');
+let key = document.querySelectorAll('.key');
+let CapsLock = document.querySelector('.CapsLock');
+let not = document.querySelectorAll('.not');
+let shift = document.querySelector('.shift');
+let addShift = document.querySelectorAll('.addShift');
+let isShift = document.querySelectorAll('.isSift')
+key.forEach((el, i) => {
+    let value = el.textContent
+    el.addEventListener('click', (ev, i) => {
+        if (value === 'Backspace') {
+            keyText.value = keyText.value.slice(0, -1)
+        } else if (value === 'Space') {
+            keyText.value += ' ';
+        } else if (value === 'shift') {
+            shift.classList.toggle('greyColor');
+            keyboard.classList.toggle('uppercase');
+            not.forEach((notEl) => {
+                notEl.style.textTransform = 'none'
+            })
+            addShift.forEach((el) => {
+                el.classList.toggle('addShift');
+            })
+            isShift.forEach((el) => {
+                el.classList.toggle('isSift2');
+            })
+        } else if (shift.matches('.greyColor')) {
+            keyText.value += value.toUpperCase()
+        } else if (value === 'CapsLock') {
+            CapsLock.classList.toggle('greyColor');
+            keyboard.classList.toggle('uppercase')
+            not.forEach((notEl) => {
+                notEl.style.textTransform = 'none'
+            })
+        } else if (CapsLock.matches('.greyColor')) {
+            keyText.value += value.toUpperCase()
+        } else if (value === 'Enter'){
+            console.log(keyText.value)
+            keyText.value = '';
+        }else {
+            keyText.value += value
+        }
+    })
+})
 
 
 
