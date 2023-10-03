@@ -492,3 +492,22 @@ td {
     border: 1px solid grey;
 }
 
+
+.tag {
+    width: 700px;
+    padding: 10px;
+    border: 2px solid green;
+    margin-left: 40px;
+    text-align: center;
+}
+
+.descriptionTag {
+    margin: 20px;
+    font-size: 20px;
+    text-indent: 4%;
+}
+
+.descriptionTag:first-letter {
+    font-size: 35px;
+    color: red;
+}
