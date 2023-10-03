@@ -443,3 +443,52 @@ td {
     border: 1px solid green;
     padding-left: 20px;
 }
+
+.list {
+    display: flex;
+}
+
+.calendar, .calendar2 {
+    text-align: center;
+}
+
+.list li {
+    list-style: none;
+    margin: 2px;
+    padding: 5px;
+    border: 1px solid grey;
+}
+
+.wrapperHeight {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrowRight {
+    margin-left: 10px;
+    cursor: pointer;
+}.arrowLeft {
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+ .bgList {
+     background: red;
+ }
+ .test10 {
+     display: none;
+ }
+
+ .list2 {
+     display: flex;
+ }
+
+
+.list2 li {
+    list-style: none;
+    margin: 2px;
+    padding: 5px;
+    border: 1px solid grey;
+}
+

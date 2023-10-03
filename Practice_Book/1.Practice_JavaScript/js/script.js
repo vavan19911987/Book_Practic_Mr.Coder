@@ -487,23 +487,112 @@ key.forEach((el, i) => {
             })
         } else if (CapsLock.matches('.greyColor')) {
             keyText.value += value.toUpperCase()
-        } else if (value === 'Enter'){
+        } else if (value === 'Enter') {
             console.log(keyText.value)
             keyText.value = '';
-        }else {
+        } else {
             keyText.value += value
         }
     })
 })
 
 
+// ! Линейный календарь на JavaScript
 
+// ? №1
+// * Выведите в виде списка ul все числа текущего месяца.
+// * Средствами CSS поставьте пункты списка в ряд.
 
+// ? №2
+// * Сделайте так, чтобы текущий день в календаре был выделен
+// * каким-нибудь цветом.
 
+// ? №3
+// * Сделайте так, чтобы над списком было написано
+// * название текущего месяца по-русски и номер года.
 
+// ? №4
+// * Сделайте так, чтобы над календарем появились
+// * ссылки вперед и назад, позволяющие менять месяц.
+// * Месяц и год, выводимые над календарем, должны соответствовать
+// * отображаемому месяцу.
 
+let numberList = document.querySelectorAll('li');
+let monthText = document.querySelector('#month');
+let list = document.querySelector('.list')
+let arrowRight = document.querySelector('.arrowRight');
+let arrowLeft = document.querySelector('.arrowLeft');
+let test31 = document.querySelector('.test31')
+let test30 = document.querySelector('.test30')
+let test29 = document.querySelector('.test29')
+let arrMonth = ['Январь', 'Феврвль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь']
+let data = new Date();
+let year = data.getFullYear()
+function calendar() {
+    let month = data.getMonth();
+    function lastDate() {
+        let data4
+        let currentMonth = new Date(year, month, 1)
+        let nextMonth = new Date(year, month + 1, 1);
+        return data4 = Math.round((nextMonth - currentMonth) / 1000 / 3600 / 24);
+    }
+    function test() {
+        switch (lastDate()) {
+            case 31:
+                test31.style.display = 'block'
+                test30.style.display = 'block'
+                test29.style.display = 'block'
+                break;
 
+            case 29:
+                test30.style.display = 'none'
+                test31.style.display = 'none'
+                break;
 
+            case 28:
+                test29.style.display = 'none'
+                test30.style.display = 'none'
+                test31.style.display = 'none'
+                break;
+
+            default:
+                test31.style.display = 'none'
+        }
+    }
+
+    numberList.forEach((el) => {
+        if (+el.textContent === data.getDate()) {
+            el.style.backgroundColor = 'red'
+        }
+    })
+    for (let i = 0; i <= arrMonth.length - 1; i++) {
+        if (i === data.getMonth()) {
+            monthText.textContent = arrMonth[i] + ' ' + year;
+            arrowRight.addEventListener('click', () => {
+                if (i >= 11) {
+                    i = -1
+                    year += 1
+                }
+                monthText.textContent = arrMonth[++i] + ' ' + year;
+                month = i
+                lastDate();
+                test()
+            })
+            arrowLeft.addEventListener('click', () => {
+                if (i <= 0) {
+                    i = 12
+                    year -= 1
+                }
+                monthText.textContent = arrMonth[--i] + ' ' + year;
+                month = i
+                lastDate();
+                test()
+            })
+        }
+    }
+    test()
+}
+calendar();
 
 
 
