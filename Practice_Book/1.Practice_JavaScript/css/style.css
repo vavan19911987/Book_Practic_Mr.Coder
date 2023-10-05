@@ -511,3 +511,30 @@ td {
     font-size: 35px;
     color: red;
 }
+
+
+* {
+    box-sizing: border-box;
+}
+#parent {
+    padding: 20px;
+    border: 2px solid green;
+    margin: 82px;
+    width: 600px;
+    text-align: center;
+}
+#input {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 80px;
+    border: 1px solid #ffa500;
+}
+#table {
+    width: 100%;
+}
+#table td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid black;
+}
