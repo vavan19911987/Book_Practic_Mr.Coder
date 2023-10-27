@@ -4,8 +4,8 @@ body {
 
 .container {
     /*width: 600px;*/
-    display: flex;
-    flex-wrap: wrap;
+    /*display: flex;*/
+    /*flex-wrap: wrap;*/
 }
 
 #square {
@@ -537,4 +537,34 @@ td {
     padding: 10px;
     text-align: center;
     border: 1px solid black;
+}
+
+#horoscope {
+    padding: 20px;
+    border: 2px solid green;
+    margin: 80px;
+    width: 600px;
+    text-align: center;
+}
+#horoscopeInp {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 80px;
+    border: 1px solid #ffa500;
+}
+
+.check {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.check label {
+    margin-right: 5px;
+}
+
+.check input {
+    margin-right: 30px;
 }
