@@ -1144,6 +1144,7 @@ function enter(e) {
         }
     })
 }
+
 enter(); // вспомогательная функция
 
 function horoscope(obj) {
@@ -1200,7 +1201,7 @@ function horoscope(obj) {
                             }
                         }
                     }
-                     // Овен 03.21 - 04.20
+                    // Овен 03.21 - 04.20
                 }
             }
         } else if (horoscopeInp.value >= '04.21' && horoscopeInp.value <= '05.20') {
@@ -1235,7 +1236,7 @@ function horoscope(obj) {
                             }
                         }
                     }
-                     // Близнецы 05.21 - 06.21
+                    // Близнецы 05.21 - 06.21
                 }
             }
         } else if (horoscopeInp.value >= '06.22' && horoscopeInp.value <= '07.22') {
@@ -1253,7 +1254,7 @@ function horoscope(obj) {
                             }
                         }
                     }
-                     // Рак 06.22 - 07.22
+                    // Рак 06.22 - 07.22
                 }
             }
         } else if (horoscopeInp.value >= '07.23' && horoscopeInp.value <= '08.23') {
@@ -1271,7 +1272,7 @@ function horoscope(obj) {
                             }
                         }
                     }
-                     // Лев 07.23 - 08.23
+                    // Лев 07.23 - 08.23
                 }
             }
         } else if (horoscopeInp.value >= '08.24' && horoscopeInp.value <= '09.23') {
@@ -1307,7 +1308,7 @@ function horoscope(obj) {
                             }
                         }
                     }
-                     // Весы 09.24 - 10.23
+                    // Весы 09.24 - 10.23
                 }
             }
         } else if (horoscopeInp.value >= '10.24' && horoscopeInp.value <= '11.22') {
@@ -1325,7 +1326,7 @@ function horoscope(obj) {
                             }
                         }
                     }
-                     // Скорпион 10.24 - 11.22
+                    // Скорпион 10.24 - 11.22
                 }
             }
         } else if (horoscopeInp.value >= '11.23' && horoscopeInp.value <= '12.21') {
@@ -1343,7 +1344,7 @@ function horoscope(obj) {
                             }
                         }
                     }
-                     // Стрелец 11.23 - 12.21
+                    // Стрелец 11.23 - 12.21
                 }
             }
         } else if (horoscopeInp.value >= '12.22' && horoscopeInp.value <= '12.31' || horoscopeInp.value >= '01.01' && horoscopeInp.value <= '01.20') {
@@ -1361,7 +1362,7 @@ function horoscope(obj) {
                             }
                         }
                     }
-                     // Козерог 12.22 - 01.20
+                    // Козерог 12.22 - 01.20
                 }
             }
         }
@@ -1369,7 +1370,91 @@ function horoscope(obj) {
 }
 
 
+// ! Сайт предсказаний на JavaScript
 
+// * Сейчас мы сделаем сайт, который будет выдавать предсказания.
+// * Пусть на этом сайте будет кнопка, по нажатию на которую будет
+// * запускаться таймер, который будет каждые 0.1 секунд выводить
+// * в какой-нибудь див случайное число от 1 до некоторого максимального.
+// * Под дивом пусть будет другая кнопка, по нажатию на которую пользователь нашего сайта может остановить таймер
+// * и зафиксировать некоторое число в диве. Это число будет номером предсказания. После этого покажите пользователю
+// * предсказание с этим номером, а все лишние кнопки уберите с экрана,
+// * чтобы пользователь не мог получить еще одно предсказание. То есть на один заход на сайт - одно предсказание.
+
+// ? №1
+
+// * Продумайте, как удобнее хранить предсказания.
+
+// ? №2
+
+// * Реализуйте описанный сайт.
+
+// ? №3
+
+// * Сделайте так, чтобы предсказания были двух видов: хорошие и плохие.
+// * Сделайте так, чтобы плохие красились в красный цвет, а хорошие - в зеленый.
+
+let button = document.querySelector('.button');
+let button2 = document.querySelector('.button2');
+let numTimer = document.querySelector('.numTimer');
+let predictionsText = document.querySelector('.predictionsText');
+
+
+let predictions = {
+    test1: ['у вас сегодня будет замечательный день',
+        'сегодня лучше не выходите из дома',
+        'сегодня вас ждет удача и успех во всех начинаниях',
+        'сегодня вас ждет успех при изучении JavaScript',
+        'сегодня лучше полежите весь день на диване',
+        'сегодня вы рискуете что-нибудь забыть при выходе из дома',
+        'устройте сегодня себе выходной - пусть весь мир подождет'],
+    test2: [
+        'У вас не удачный день',
+        'Вам предстоит потратить много денег в пустую',
+        'Вы какашка',
+        'Не стоило заходить на этот сайт',
+        'Уйдите с сайта вам тут делать не чего',
+        'Вы слюнтяй',
+    ],
+    test3: ['У вас просто не хватает везения',
+        'Попробуйте еще',
+        'Вам не стоит крутить это колесо',
+        'Что то пошло не поплачу попробуйте еще раз',]
+}
+let random;
+let arr1;
+let timerId;
+let testArr;
+
+function starts() {
+    button.addEventListener('click', () => {
+        arr1 = Object.values(predictions);
+        testArr = Math.floor(Math.random() * arr1.length);
+        if (testArr === 1) {
+            predictionsText.style.color = 'red';
+        } else if (testArr === 0) {
+            predictionsText.style.color = 'green'
+        } else if (testArr === 2) {
+            predictionsText.style.color = 'blue'
+        }
+        button.style.display = 'none';
+        button2.style.display = 'block';
+        timerId = setInterval(function () {
+            numTimer.textContent = random = getRandomInt(1, arr1[testArr].length);
+        }, 100);
+    })
+    button2.addEventListener('click', () => {
+        button2.style.display = 'none';
+        numTimer.style.display = 'none';
+        clearInterval(timerId);
+        predictionsText.textContent = arr1[testArr][random - 1];
+    })
+}
+starts();
+
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 
 

@@ -264,7 +264,46 @@ inp.addEventListener('blur', () => {
 
 
 
+////////////////////////////////
 
+let button = document.querySelector('.button');
+let button2 = document.querySelector('.button2');
+let numTimer = document.querySelector('.numTimer');
+let predictionsText = document.querySelector('.predictionsText');
+
+
+let predictions = [
+    'у вас сегодня будет замечательный день',
+    'сегодня лучше не выходите из дома',
+    'сегодня вас ждет удача и успех во всех начинаниях',
+    'сегодня вас ждет успех при изучении JavaScript',
+    'сегодня лучше полежите весь день на диване',
+    'сегодня вы рискуете что-нибудь забыть при выходе из дома',
+    'устройте сегодня себе выходной - пусть весь мир подождет'
+];
+
+let random;
+let timerId;
+function starts() {
+    button.addEventListener('click', () => {
+        button.style.display = 'none';
+        button2.style.display = 'block';
+        timerId =  setInterval(function () {
+            numTimer.textContent = random = getRandomInt(1, predictions.length);
+        }, 100);
+    })
+    button2.addEventListener('click', () => {
+        button2.style.display = 'none';
+        numTimer.style.display = 'none';
+        clearInterval(timerId);
+
+        predictionsText.textContent = predictions[random - 1];
+    })
+}
+starts();
+function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 
 
