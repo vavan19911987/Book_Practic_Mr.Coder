@@ -1457,6 +1457,214 @@ function getRandomInt(min, max) {
 }
 
 
+// ! Автодополнение на JavaScript
+
+// * Сейчас мы реализуем автодополнение. Под этим термином понимается
+// * выпадающая подсказка при вводе текста в инпут. Давайте посмотрим на примере.
+// * Ниже я сделал инпут, в который можно ввести название страны. При этом, если
+// * ввести какие-то буквы, то под инпутом появится список стран, которые начинаются на
+// * введенную строку.
+// * При желании можно, чтобы не вводить целиком имя страны,
+// * кликнуть мышкой на любую страну и она появится в инпуте.
+// * Для этого, в общем-то, автодополнение и нужно. В примере для простоты я сделал
+// * только три страны: Belarus, Belgium и Bulgaria. Введите в приведенный ниже инпут сначала символ
+// * 'В' английское, а потом 'e' и посмотрите, что будет:
+
+let elemInput = document.querySelector('#elem');
+let elemList = document.querySelector('#list');
+
+let arrCountry  = [
+        'Abkhazia',
+    	'Australia',
+    	'Austria',
+    	'Azerbaijan',
+     	'Aland Islands',
+    	'Albania',
+    	'Algeria',
+    	'Anguilla',
+    	'Angola',
+    	'Andorra',
+    	'Argentina',
+    	'Armenia',
+    	'Aruba',
+    	'Afghanistan',
+     	'Bahamas',
+    	'Bangladesh',
+    	'Barbados',
+    	'Bahrain',
+    	'Belarus',
+    	'Belize',
+    	'Belgium',
+    	'Benin',
+    	'Bulgaria',
+    	'Bolivia',
+     	'Bosnia & Herzegovina',
+    	'Botswana',
+    	'Brazil',
+    	'Brunei Darussalam',
+    	'Burundi',
+    	'Bhutan',
+    	'Vatican City',
+    	'United Kingdom',
+    	'Hungary',
+    	'Venezuela',
+     	'Timor, East',
+    	'Viet Nam',
+    	'Gabon',
+    	'Haiti',
+    	'Gambia',
+    	'Ghana',
+    	'Guadeloupe',
+    	'Guatemala',
+    	'Guinea',
+    	'Guinea-Bissau',
+    	'Germany',
+    	'Gibraltar',
+    	'Hong Kong',
+    	'Honduras',
+    	'Grenada',
+    	'Greenland',
+    	'Greece',
+    	'Georgia',
+    	'Guam',
+    	'Denmark',
+    	'Dominica',
+     	'Dominican Republic',
+    	'Egypt',
+    	'Zambia',
+     	'Western Sahara',
+    	'Zimbabwe',
+    	'Israel',
+    	'India',
+    	'Indonesia',
+    	'Jordan',
+    	'Iraq',
+    	'Iran',
+    	'Ireland',
+    	'Iceland',
+    	'Spain',
+    	'Italy',
+    	'Yemen',
+    	'Kazakhstan',
+    	'Cambodia',
+    	'Cameroon',
+    	'Canada',
+    	'Qatar',
+    	'Kenya',
+    	'Cyprus',
+    	'Kyrgyzstan',
+    	'Kiribati',
+    	'China',
+    	'Colombia',
+        'Korea, D.P.R.',
+        'Korea',
+    	'Costa Rica',
+    	'Cuba',
+    	'Kuwait',
+    	'Lao P.D.R.',
+        'Latvia',
+    	'Lesotho',
+    	'Liberia',
+    	'Lebanon',
+    	'Libyan Arab Jamahiriya',
+    	'Lithuania',
+    	'Liechtenstein',
+    	'Luxembourg',
+    	'Mauritius',
+    	'Mauritania',
+    	'Madagascar',
+    	'Macedonia',
+    	'Malawi',
+    	'Malaysia',
+    	'Mali',
+    	'Maldives',
+    	'Malta',
+    	'Morocco',
+    	'Mexico',
+    	'Mozambique',
+    	'Moldova',
+    	'Monaco',
+    	'Mongolia',
+    	'Namibia',
+    	'Nepal',
+    	'Niger',
+    	'Nigeria',
+    	'Netherlands',
+    	'Nicaragua',
+     	'New Zealand',
+    	'Norway',
+    	'United Arab Emirates',
+    	'Oman',
+    	'Pakistan',
+    	'Panama',
+    	'Paraguay',
+    	'Peru',
+    	'Poland',
+    	'Portugal',
+    	'Russia',
+    	'Romania',
+    	'San Marino',
+     	'Saudi Arabia',
+    	'Senegal',
+    	'Serbia',
+    	'Singapore',
+    	'Syrian Arab Republic',
+    	'Slovakia',
+    	'Slovenia',
+    	'Somalia',
+    	'Sudan',
+    	'USA',
+    	'Tajikistan',
+    	'Thailand',
+    	'Tanzania',
+    	'Togo',
+    	'Tunisia',
+    	'Turkmenistan',
+    	'Turkey',
+    	'Uganda',
+    	'Uzbekistan',
+    	'Ukraine',
+    	'Uruguay',
+      	'Micronesia',
+    	'Fiji',
+    	'Philippines',
+    	'Finland',
+    	'France',
+    	'Croatia',
+    	'Chad',
+    	'Montenegro',
+    	'Czech Republic',
+    	'Chile',
+    	'Switzerland',
+    	'Sweden',
+    	'Sri Lanka',
+    	'Ecuador',
+    	'Eritrea',
+    	'Estonia',
+    	'Ethiopia',
+    	'South Africa',
+    	'Jamaica',
+    	'Japan'];
+function isInput(arr) {
+    elemInput.addEventListener('input', () => {
+        elemList.textContent = '';
+        if (elemInput.value !== '') {
+            let newArr = arrCountry.filter(el => el.startsWith(elemInput.value))
+            if (newArr.length > 0) {
+                for (let string of newArr) {
+                    let li = document.createElement('li');
+                    li.textContent = string
+                    elemList.append(li);
+                    li.addEventListener('click', () => {
+                        elemInput.value = li.textContent;
+                        elemList.textContent = '';
+                    })
+                }
+            }
+        }
+    })
+}
+isInput();
 
 
 

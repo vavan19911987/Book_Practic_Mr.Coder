@@ -445,6 +445,7 @@ td {
     border-radius: 10px;
     border: 1px solid green;
     padding-left: 20px;
+    margin-left: 130px;
 }
 
 .list {
@@ -592,4 +593,37 @@ td {
 .predictions .button2 {
     display: none;
     text-align: center;
+}
+
+/* ???????????????????????????????????????????*/
+
+.autocompletion {
+    position: relative;
+    padding: 20px;
+    border: 2px solid green;
+    width: 600px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.autocompletion ul {
+    position: relative;
+    right: 52px;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    background-color: white;
+}
+
+.autocompletion li {
+    border: 1px solid grey;
+    font-size: 18px;
+    padding: 5px;
+}
+.autocompletion li:hover {
+    border: 1px solid black;
+    cursor: pointer;
 }
