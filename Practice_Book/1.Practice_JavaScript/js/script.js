@@ -300,8 +300,7 @@ function getGenerator() {
         function getRandomInt(min, max) {
             return Math.floor(Math.random() * (max - min + 1)) + min;
         }
-
-        number.textContent = getRandomInt(1, 100)
+        number.textContent = getRandomInt(1, 100);
     })
 }
 
@@ -1667,7 +1666,18 @@ function isInput(arr) {
 isInput();
 
 
+// ! Спойлер на JavaScript
+// * Сейчас мы научимся делать спойлеры. Под спойлерами я понимаю блоки,
+// * которые можно развернуть, либо свернуть с помощью специальной ссылки.
 
+let linkSpoiler = document.querySelectorAll('.toggle');
+let spoiler = document.querySelector('.spoiler');
+linkSpoiler.forEach((el) => {
+    el.addEventListener('click', (event) => {
+        event.preventDefault();
+        el.nextElementSibling.classList.toggle('active');
+    })
+})
 
 
 
