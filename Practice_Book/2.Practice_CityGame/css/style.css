@@ -1,0 +1,50 @@
+body {
+    margin: 0 auto;
+}
+.container {
+    background: #8f8fc2;
+    height: 100vh;
+}
+
+.sectionGame {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 940px;
+    padding-top: 50px;
+    margin: 0 auto;
+}
+#message {
+    margin-top: 20px;
+    color: red;
+    font-size: 20px;
+}
+
+#field {
+    padding: 4px;
+    border-radius: 10px;
+}
+
+#fieldInp {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+#text {
+    font-size: 53px;
+    color: red;
+}
+
+.footer {
+    position: relative;
+    bottom: -50%;
+}
+.sectionGame h2 {
+    text-align: center;
+}
+
+.footer {
+    margin-top: 50px;
+    font-size: 10px;
+}
