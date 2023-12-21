@@ -23,32 +23,38 @@
     let text = parent.querySelector('#text')
     let cities = [];
     field.addEventListener("keypress", (e) => {
-        if (e.which === 13) {
-            if (cities.length === 0) {
-                cities.push(field.value);
-                console.log(cities)
-                text.textContent = cities[cities.length -1].slice(-1)
-            }
-            if (cities.length > 0) {
-                for (const city of cities) {
-                    if (cities[cities.length -1].slice(-1) === field.value.slice(0, 1)) {
-                        cities.push(field.value);
-                        console.log(cities)
-                        text.textContent = cities[cities.length -1].slice(-1)
-                        break;
-                    }
+        if (field.value.slice(0, 1).toUpperCase()) {
+            if (e.which === 13) {
+                if (cities.length === 0) {
+                    cities.push(field.value);
+                    console.log(cities)
+                    text.textContent = cities[cities.length -1].slice(-1).toUpperCase()
                 }
-                cities.filter((el, i , arr) => {
-                    if (arr.indexOf(el) !== i) {
-                        cities.pop()
-                        message.textContent = 'Город уже был назван'
-                        text.textContent = cities[cities.length -1].slice(-1)
-                    } else {
-                        message.textContent = '';
+                if (cities.length > 0) {
+                    for (const city of cities) {
+
+                        if (cities[cities.length -1].slice(-1) === field.value.slice(0, 1).toLowerCase()) {
+                            cities.push(field.value.toLowerCase());
+                            console.log(cities)
+                            text.textContent = cities[cities.length -1].slice(-1).toUpperCase()
+                            break;
+                        }
                     }
-                })
+                    cities.filter((el, i , arr) => {
+                        if (arr.indexOf(el) !== i) {
+                            cities.pop()
+                            message.textContent = 'Город уже был назван'
+                            text.textContent = cities[cities.length -1].slice(-1)
+                        } else {
+                            message.textContent = '';
+                        }
+                    })
+                }
+                field.value = '';
             }
-            field.value = '';
         }
+
     })
 })('.sectionGame' );
+
+
