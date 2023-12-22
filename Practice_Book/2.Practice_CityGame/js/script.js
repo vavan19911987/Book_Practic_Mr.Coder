@@ -26,13 +26,11 @@
         if (field.value.slice(0, 1).toUpperCase()) {
             if (e.which === 13) {
                 if (cities.length === 0) {
-                    cities.push(field.value);
+                    cities.push(field.value.toLowerCase());
                     console.log(cities)
-                    text.textContent = cities[cities.length -1].slice(-1).toUpperCase()
-                }
-                if (cities.length > 0) {
+                    text.textContent = cities[cities.length -1].slice(-1).toUpperCase();
+                } else if (cities.length > 0) {
                     for (const city of cities) {
-
                         if (cities[cities.length -1].slice(-1) === field.value.slice(0, 1).toLowerCase()) {
                             cities.push(field.value.toLowerCase());
                             console.log(cities)
@@ -44,7 +42,7 @@
                         if (arr.indexOf(el) !== i) {
                             cities.pop()
                             message.textContent = 'Город уже был назван'
-                            text.textContent = cities[cities.length -1].slice(-1)
+                            text.textContent = cities[cities.length -1].slice(-1).toUpperCase()
                         } else {
                             message.textContent = '';
                         }
@@ -53,7 +51,6 @@
                 field.value = '';
             }
         }
-
     })
 })('.sectionGame' );
 
