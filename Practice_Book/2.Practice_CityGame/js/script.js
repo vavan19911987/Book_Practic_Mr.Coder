@@ -23,35 +23,57 @@
     let text = parent.querySelector('#text')
     let cities = [];
     field.addEventListener("keypress", (e) => {
-        if (field.value.slice(0, 1).toUpperCase()) {
-            if (e.which === 13) {
-                if (cities.length === 0) {
-                    cities.push(field.value.toLowerCase());
-                    console.log(cities)
-                    text.textContent = cities[cities.length -1].slice(-1).toUpperCase();
-                } else if (cities.length > 0) {
-                    for (const city of cities) {
-                        if (cities[cities.length -1].slice(-1) === field.value.slice(0, 1).toLowerCase()) {
-                            cities.push(field.value.toLowerCase());
-                            console.log(cities)
-                            text.textContent = cities[cities.length -1].slice(-1).toUpperCase()
-                            break;
-                        }
-                    }
-                    cities.filter((el, i , arr) => {
-                        if (arr.indexOf(el) !== i) {
-                            cities.pop()
-                            message.textContent = 'Город уже был назван'
-                            text.textContent = cities[cities.length -1].slice(-1).toUpperCase()
-                        } else {
-                            message.textContent = '';
-                        }
-                    })
-                }
-                field.value = '';
-            }
+        const enteredValue = field.value.slice(0, 1).toUpperCase();
+        const ENTER = 13
+        const lengthArr = cities.length;
+        const inputStrLow = field.value.toLowerCase();
+        if (!enteredValue || e.which !== ENTER) {
+            return;
         }
-    })
-})('.sectionGame' );
+        if (lengthArr === 0) {
+            cities.push(inputStrLow);
+            console.log(cities)
+            if (field.value.slice(-1) === 'ь') {
+                text.textContent = cities[cities.length - 1].slice(-2, -1).toUpperCase();
+            } else {
+                text.textContent = cities[cities.length - 1].slice(-1).toUpperCase();
+            }
+        } else if (lengthArr > 0) {
+            for (const city of cities) {
+                if (field.value.slice(-1) === 'ь') {
+                    cities.push(inputStrLow);
+                    console.log(cities)
+                    text.textContent = cities[cities.length - 1].slice(-2, -1).toUpperCase();
+                    break;
 
+                } else if (cities[cities.length - 1].slice(-1) === 'ь' && cities[cities.length - 1].slice(-2,-1) === field.value.slice(0, 1).toLowerCase()) {
+                    cities.push(inputStrLow);
+                    console.log(cities)
+                    text.textContent = cities[cities.length - 1].slice(-1).toUpperCase();
+                    break;
+                } else if (cities[cities.length - 1].slice(-1) === field.value.slice(0, 1).toLowerCase()) {
+                    cities.push(inputStrLow);
+                    console.log(cities)
+                    text.textContent = cities[cities.length - 1].slice(-1).toUpperCase();
+                    break;
+                }
+            }
+            cities.filter((el, i, arr) => {
+                if (arr.indexOf(el) !== i) {
+                    cities.pop()
+                    message.textContent = 'Город уже был назван'
+                    if (cities[cities.length - 1].slice(-1) === 'ь') {
+                        text.textContent = cities[cities.length - 1].slice(-2,-1).toUpperCase();
+                    } else {
+                        text.textContent = cities[cities.length - 1].slice(-1).toUpperCase();
+                    }
+                } else {
+                    message.textContent = '';
+                }
+            })
+        }
+        field.value = '';
+    })
+})('.sectionGame');
+// срабатывает на две последние буквы надо исправлять
 
