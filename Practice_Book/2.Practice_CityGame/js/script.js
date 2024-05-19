@@ -715,7 +715,7 @@
         const enteredValue = field.value.slice(0, 1).toUpperCase();
         const ENTER = 13
         const lengthArr = cities.length;
-        const inputStrLow = field.value.toLowerCase();
+        // const inputStrLow = field.value.toLowerCase();
         let inputValue = field.value.slice(0, 1).toUpperCase() + field.value.slice(1);
 
         if (!enteredValue || e.which !== ENTER) {
@@ -787,7 +787,3 @@
 })('.sectionGame');
 
 
-// сделать проверку на дубликат у робота
-// нужно чделать так чтобы функция дебликат проверяла не только букву но и
-// колличество городов в массисе на эту букву и если городов больше нет то выдовала соответствующий код
-//
