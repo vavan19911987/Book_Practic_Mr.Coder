@@ -18,3 +18,6 @@ body {
 #list .remove:hover, #list .mark:hover {
     text-decoration: underline;
 }
+#list .done {
+    text-decoration: line-through;
+}
