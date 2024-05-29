@@ -2,6 +2,12 @@
 
 let input = document.querySelector('#input');
 let list = document.querySelector('#list');
+const addNOte = document.querySelector('.btn1');
+
+addNOte.addEventListener('click', function () {
+    let note = document.querySelector('.add');
+    note.className = 'flex';
+})
 
 input.addEventListener('keypress', function(event) {
     if (event.key === 'Enter') {
@@ -12,13 +18,14 @@ input.addEventListener('keypress', function(event) {
         task.textContent = this.value;
         task.addEventListener('dblclick', function(ev) {
             let inp = document.createElement('input');
-            inp.value = task.textContent
-            task.textContent = '';
-            task.appendChild(inp);
-            if (ev.key === 'Enter') {
-                inp.remove();
-                task.textContent = inp.textContent;
-            }
+            inp.value = this.textContent
+            this.textContent = '';
+            this.appendChild(inp);
+            inp.addEventListener('keypress', function (event) {
+                    if (event.key === 'Enter') {
+                        task.textContent = inp.value;
+                    }
+            })
         });
         li.appendChild(task);
 
@@ -35,11 +42,8 @@ input.addEventListener('keypress', function(event) {
         mark.textContent = 'сделано';
         mark.addEventListener('click', function() {
            task.classList.add('done')
-           //  this.parentElement.classList.add('done');
         });
         li.appendChild(mark);
-
-
         list.appendChild(li);
         input.value = '';
     }

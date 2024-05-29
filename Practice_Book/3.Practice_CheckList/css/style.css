@@ -1,5 +1,5 @@
 body {
-    text-align: center;
+    background-color: #d9d9d9;
 }
 #input, #list {
     display: inline-block;
@@ -7,6 +7,7 @@ body {
 #list {
     padding: 0;
     list-style-type: none;
+    width: 300px;
 }
 #list span {
     margin-right: 5px;
@@ -21,3 +22,32 @@ body {
 #list .done {
     text-decoration: line-through;
 }
+
+.head {
+    display: none;
+}
+
+.add {
+    display: none;
+}
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn1, .btn2 {
+    margin: 10px;
+    padding: 15px;
+    font-size: 20px;
+    border-radius: 10px;
+    border:none;
+    cursor: pointer;
+    background-color: #8f8fc2;
+}
+
