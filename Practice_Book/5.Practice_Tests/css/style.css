@@ -1,0 +1,10 @@
+.right {
+    border: 3px solid green;
+}
+.wrong {
+    border: 3px solid red;
+}
+
+#sub {
+    margin: 20px 0 10px 0 ;
+}
