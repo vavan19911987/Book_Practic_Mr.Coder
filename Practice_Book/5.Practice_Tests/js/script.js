@@ -32,7 +32,7 @@
 //     });
 // });
 
-// ! Третий вариантё
+// ! Третий вариант
 
 let btn = document.querySelector('#sub');
 let main = document.querySelector('#test');
@@ -71,7 +71,7 @@ btn.addEventListener('click', () => {
     });
 });
 
-
+// Четвертый вариант
 
 
 
